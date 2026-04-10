@@ -19,37 +19,51 @@ Generate realistic, personalized mock interviews for software engineers. Practic
 
 ## Quick Start
 
-### Option 1: Use in Claude (Easiest)
+### Option 1: Add via claude.ai (Easiest — no install needed)
 
-1. Copy the contents of [core-skill/SKILL.md](core-skill/SKILL.md)
-2. Paste it into [claude.ai](https://claude.ai) as a Project instruction or directly into a conversation
-3. Tell Claude:
-   ```
-   Generate a mock interview for:
-   - Company: Google
-   - Role: Senior Frontend Engineer L4
-   - Resume: [paste your resume]
-   - Rounds: Full day (Tech Screen → System Design → Behavioral)
-   - Difficulty: Medium/Hard/Hard, Heavy follow-ups, Conversational style
-   ```
-4. Practice, get feedback, iterate
+1. Go to [claude.ai/customize/skills](https://claude.ai/customize/skills)
+2. Click **Create skill**
+3. Upload the [`core-skill/SKILL.md`](core-skill/SKILL.md) file from this repo
+4. Save — the skill is now available across all your Claude conversations
 
-### Option 2: Use in Claude Code (CLI)
-
-```bash
-npx claude-code <<EOF
-Create a mock interview for:
-- Company: Google
-- Role: Senior Frontend Engineer L4
-- Resume: [your resume]
-- Job: [job description]
-- Round: System Design, 60 min, Hard
-EOF
+Then start any conversation and either invoke it directly:
+```
+/mock-interview-generator Company: Google, Role: Senior Frontend Engineer L4, Resume: [paste your resume], Rounds: Tech Screen + System Design + Behavioral, Difficulty: Hard
+```
+Or just ask naturally and Claude will trigger the skill automatically:
+```
+I have a Google L4 interview next week. Can you run a full mock interview day?
 ```
 
-### Option 3: Self-Host (Advanced)
+---
 
-Clone the repo, copy the system prompts into your own Claude API integration, and use the skill definitions to drive your own interview UI or automation.
+### Option 2: Use locally with Claude Code CLI
+
+**Step 1: Clone this repo**
+```bash
+git clone https://github.com/abhishek2409/interview-claude-skills.git
+```
+
+**Step 2: Copy the skill file to your Claude settings**
+
+Choose where you want the skill to be available:
+
+```bash
+# Global — available in ALL your projects
+mkdir -p ~/.claude/skills/mock-interview-generator
+cp interview-claude-skills/core-skill/SKILL.md ~/.claude/skills/mock-interview-generator/SKILL.md
+
+# Project-only — available only in the current project
+mkdir -p .claude/skills/mock-interview-generator
+cp interview-claude-skills/core-skill/SKILL.md .claude/skills/mock-interview-generator/SKILL.md
+```
+
+**Step 3: Use it in Claude Code**
+
+Claude Code picks it up automatically — no restart needed. Invoke it with:
+```
+/mock-interview-generator Company: Google, Role: Senior Frontend Engineer L4, Resume: [paste your resume], Rounds: Tech Screen + System Design + Behavioral, Difficulty: Hard
+```
 
 ---
 
