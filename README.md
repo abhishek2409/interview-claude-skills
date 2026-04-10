@@ -2,25 +2,18 @@
 
 Generate realistic, personalized mock interviews for software engineers. Practice for interviews at Google, Meta, Amazon, Microsoft, and other top tech companies.
 
-**Status**: ✅ Alpha (Core skill complete, community contributions welcome)
-
 ---
 
-## Features
+## What's in This Repo
 
-🎯 **Company-Aware**: Google asks different questions than Meta. We know that.
-
-📋 **Resume-Personalized**: Get questions that reference *your* experience, not generic ones.
-
-🔄 **Multiple Round Types**: Tech Screen → System Design → Behavioral → Coding (expandable)
-
-⚙️ **Difficulty Levels**: Easy/Medium/Hard/Expert calibrated for each company & level.
-
-💬 **Follow-Ups**: Optional conversational follow-ups for realistic practice.
-
-🎓 **Answer Frameworks**: Learn *how* to answer, not just *what* to answer.
-
-🚀 **Zero Setup**: Use directly in Claude, or integrate with your own AI app.
+| File / Folder | Purpose |
+|---|---|
+| [core-skill/SKILL.md](core-skill/SKILL.md) | The main skill definition — start here |
+| [system-prompts/](system-prompts/) | Individual prompts for each interview round type |
+| [examples/example-test-case.md](examples/example-test-case.md) | Google L4 interview walkthrough |
+| [examples/advanced-example-full-day-conversational.md](examples/advanced-example-full-day-conversational.md) | Full interview day with realistic dialogue |
+| [examples/mock-interview-skill-design.md](examples/mock-interview-skill-design.md) | Architecture & roadmap |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute |
 
 ---
 
@@ -28,16 +21,18 @@ Generate realistic, personalized mock interviews for software engineers. Practic
 
 ### Option 1: Use in Claude (Easiest)
 
-1. Copy the [SKILL.md](./SKILL.md) content
-2. Share it with Claude or upload as a project skill
-3. Tell Claude: 
+1. Copy the contents of [core-skill/SKILL.md](core-skill/SKILL.md)
+2. Paste it into [claude.ai](https://claude.ai) as a Project instruction or directly into a conversation
+3. Tell Claude:
    ```
-   I want a mock interview for Senior Frontend Engineer at Google.
-   Here's my resume: [paste resume]
-   Job description: [paste job description]
-   Round: System Design, 60 minutes, Hard difficulty
+   Generate a mock interview for:
+   - Company: Google
+   - Role: Senior Frontend Engineer L4
+   - Resume: [paste your resume]
+   - Rounds: Full day (Tech Screen → System Design → Behavioral)
+   - Difficulty: Medium/Hard/Hard, Heavy follow-ups, Conversational style
    ```
-4. Get your interview, practice answering, iterate
+4. Practice, get feedback, iterate
 
 ### Option 2: Use in Claude Code (CLI)
 
@@ -54,200 +49,140 @@ EOF
 
 ### Option 3: Self-Host (Advanced)
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for setup instructions.
+Clone the repo, copy the system prompts into your own Claude API integration, and use the skill definitions to drive your own interview UI or automation.
+
+---
+
+## Features
+
+- **Company-Aware** — Google asks different questions than Meta. We know that.
+- **Resume-Personalized** — Get questions that reference *your* experience, not generic ones.
+- **Multiple Round Types** — Tech Screen → System Design → Behavioral → Coding (expandable)
+- **Difficulty Levels** — Easy/Medium/Hard/Expert calibrated for each company & level
+- **Conversational Follow-Ups** — Optional dynamic follow-ups for realistic practice
+- **Answer Frameworks** — Learn *how* to answer, not just *what* to answer
+- **Zero Setup** — Use directly in Claude, no API keys or installs needed
 
 ---
 
 ## Interview Types
 
-### 🔧 Tech Screen (45-60 min)
+### Tech Screen (45-60 min)
 Quick assessment of coding skills and problem-solving.
 
-**Questions cover:**
-- React component design & optimization
-- JavaScript algorithms
-- Browser APIs
-- State management
-- Code quality
+Covers: React component design & optimization, JavaScript algorithms, Browser APIs, State management, Code quality
 
 **Best for:** All engineering levels
 
----
-
-### 🏗️ System Design (60-90 min)
+### System Design (60-90 min)
 Architectural thinking, trade-off analysis, scalability.
 
-**Questions cover:**
-- Frontend architecture
-- API design & optimization
-- Caching strategies
-- Real-time systems
-- Scaling & performance
+Covers: Frontend architecture, API design & optimization, Caching strategies, Real-time systems, Scaling & performance
 
 **Best for:** L4/L5/Staff+ engineers
 
----
-
-### 💬 Behavioral (30-45 min)
+### Behavioral (30-45 min)
 Teamwork, leadership, impact, culture fit.
 
-**Questions cover:**
-- Technical influence & ownership
-- Mentorship & team building
-- Learning from mistakes
-- Handling conflict & ambiguity
-- Motivation & impact
+Covers: Technical influence & ownership, Mentorship & team building, Learning from mistakes, Handling conflict & ambiguity
 
-**Best for:** All levels, especially for manager/staff/principal roles
+**Best for:** All levels, especially manager/staff/principal roles
 
----
+### Full Day Simulation
+Runs all three rounds in sequence with realistic pacing, different interviewers per round, and an end-of-day assessment with offer likelihood.
 
-### 💻 Coding (60-90 min)
-Algorithm & problem-solving challenges (coming soon).
+### Coding (coming soon)
+Algorithm & problem-solving challenges (LeetCode-style).
 
 ---
 
 ## Usage Examples
 
-### Basic Interview
+### Basic
 
 ```
 Company: Google
 Role: Senior Frontend Engineer
-Resume: 
-  12 years experience, React expert, built micro-frontends
-  at Expedia and Paytm
+Resume: 12 years experience, React expert, built micro-frontends at Expedia and Paytm
 Interview Round: Tech Screen, 45 min, Medium difficulty
 ```
 
-**Result:** 2-3 technical questions with answer frameworks and follow-ups.
+Result: 2-3 technical questions with answer frameworks and follow-ups.
 
----
-
-### Advanced Interview
+### Advanced (Full Day)
 
 ```
 Company: Google
 Role: Senior Frontend Engineer (L4)
-Level: L4
 Resume: [full resume]
 Job Description: [full job description]
-Interview Rounds: 
+Interview Rounds:
   1. Tech Screen (45 min, Medium)
   2. System Design (60 min, Hard)
   3. Behavioral (45 min, Medium)
 Customization:
-  - Difficulty: Medium/Hard/Hard
   - Follow-Ups: Moderate
-  - Focus: Frontend with system design thinking
+  - Interviewer Style: Conversational
 ```
 
-**Result:** 3 full interview rounds, each fully customized, ready to practice.
+Result: 3 full interview rounds, each fully customized, with realistic dialogue and a final assessment.
 
 ---
 
 ## Company-Specific Insights
 
-### Google 🔴
+### Google
+**Values:** Scale thinking, technical depth, influence without authority, pragmatism
+**Focus areas:** Web Vitals & performance, real-time systems, distributed systems, accessibility
+**Tips:** Always ask "What if this is 10x bigger?" — discuss monitoring & observability
 
-**What they value:**
-- Scale thinking (how does this work for billions?)
-- Technical depth in your specialty
-- Influence & leadership without authority
-- Pragmatism (use proven tech)
+### Meta
+**Values:** Move fast, iterate, impact on billions of users, product & business thinking
+**Focus areas:** Real-time feed systems, client-server sync, performance at scale
 
-**Common focus areas:**
-- Web Vitals & performance
-- Real-time systems
-- Distributed systems
-- Accessibility
+### Amazon
+**Values:** Customer obsession, leadership principles, ownership & accountability, bias to action
+**Focus areas:** E-commerce architecture, scalability, operations & reliability
 
-**Tips:**
-- Always ask "What if this is 10x bigger?"
-- Reference your systems thinking
-- Discuss monitoring & observability
-
----
-
-### Meta 🔵
-
-**What they value:**
-- Move fast, iterate
-- Impact on billions of users
-- Building culture & mentoring
-- Product & business thinking
-
-**Common focus areas:**
-- Real-time feed systems
-- Client-server sync
-- Performance at scale
-- User experience
-
----
-
-### Amazon 🟠
-
-**What they value:**
-- Customer obsession
-- Leadership principles
-- Ownership & accountability
-- Bias to action
-
-**Common focus areas:**
-- E-commerce architecture
-- Scalability
-- Operations & reliability
-
----
-
-### Microsoft 🔷
-
-**What they value:**
-- Collaboration & inclusion
-- Technical excellence
-- Growth mindset
-- Cloud-native thinking
+### Microsoft
+**Values:** Collaboration & inclusion, technical excellence, growth mindset, cloud-native thinking
 
 ---
 
 ## How to Practice
 
-1. **Pick a target company & role**
-2. **Generate a mock interview** (tech screen is easiest to start)
-3. **Practice out loud** (record yourself)
-4. **Evaluate your answer**:
-   - Did you answer the question?
-   - Did you explain your thinking?
-   - Was your answer grounded in real experience?
-   - Did you mention relevant metrics/outcomes?
-5. **Regenerate** (get different questions, see if you improve)
-6. **Move to harder difficulty** or different round type
+1. Pick a target company & role
+2. Generate a mock interview (tech screen is easiest to start)
+3. Practice out loud — record yourself if possible
+4. Evaluate your answer: Did you explain your thinking? Was it grounded in real experience? Did you mention metrics/outcomes?
+5. Regenerate with different questions, see if you improve
+6. Move to harder difficulty or a different round type
 
-**Pro tip:** Practice the same round 3-5 times. You'll notice your answers get stronger, more concise, and more confident.
+**Pro tip:** Practice the same round 3-5 times. Answers get stronger, more concise, and more confident each time.
 
 ---
 
 ## How to Contribute
 
 We're looking for:
-- ⭐ **New question types** (Coding, Product Design, etc.)
-- 🏢 **Company-specific improvements** (more detailed insights, common questions)
-- 🌍 **Translations** (Chinese, Spanish, Hindi, etc.)
-- 🐛 **Bug reports** & feature requests
-- 💡 **Success stories** (interviews you got offers from!)
+- New question types (Coding, Product Design, etc.)
+- Company-specific improvements (more detailed insights, real questions)
+- Translations (Chinese, Spanish, Hindi, etc.)
+- Bug reports & feature requests
+- Success stories (interviews you got offers from!)
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
-## Limitations & Disclaimers
+## Limitations
 
-✅ **What this is:**
+**What this is:**
 - A practice tool to build confidence & get feedback
 - Representative of real interview question styles
 - A starting point for answer frameworks
 
-❌ **What this is NOT:**
+**What this is NOT:**
 - A guarantee you'll get certain questions
 - A substitute for studying data structures & algorithms
 - A replacement for real interview feedback from hiring managers
@@ -256,96 +191,52 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.
 
 ## Roadmap
 
-### v1 (Current) ✅
-- [x] Tech Screen questions
-- [x] System Design questions
-- [x] Behavioral questions
-- [x] Difficulty levels
-- [x] Follow-up questions
+### v1 (Current)
+- [x] Tech Screen, System Design, Behavioral rounds
+- [x] Difficulty levels (Easy → Expert)
+- [x] Conversational follow-ups
 - [x] Company-specific context
+- [x] Full-day simulation
 
-### v2 (Q2)
+### v2
 - [ ] Coding interview questions (LeetCode-style)
 - [ ] Product design interviews
 - [ ] Interactive web UI
-- [ ] Multi-round generator
 - [ ] Export to PDF/Markdown
 - [ ] Answer evaluation & scoring
 
-### v3 (Q3)
+### v3
 - [ ] Video interview simulation
 - [ ] Speech-to-text practice
 - [ ] Performance scoring & analytics
-- [ ] Personalized improvement plan
-- [ ] Integration with interview platforms (Interviewing.io, Pramp)
+- [ ] Integration with interview platforms
 
 ---
 
 ## FAQ
 
-**Q: Will these questions exactly match what I'll see in a real interview?**
+**Will these questions exactly match what I'll see in a real interview?**
+No, interviews vary. But the style, difficulty, and focus areas are representative. Think of it as a realistic simulation, not a prediction.
 
-A: No, interviews vary. But the *style*, *difficulty*, and *focus areas* are representative. Think of it as a realistic simulation, not a prediction.
+**Can I use this to prepare for non-tech interviews?**
+The skill is optimized for software engineering interviews but could be adapted for product management, design, or operations. Contributions welcome.
 
----
+**Is this free?**
+Yes. The skill files are open-source and free to use. Normal Claude API or subscription costs apply if you use it through Claude.
 
-**Q: Can I use this to prepare for non-tech interviews?**
-
-A: The skill is optimized for software engineering interviews. It could be adapted for product management, design, or operations roles. Contributions welcome!
-
----
-
-**Q: How often are questions updated?**
-
-A: As companies' tech stacks change and interview practices evolve, we update the skill. The core framework is stable, but questions improve continuously.
-
----
-
-**Q: Is this free?**
-
-A: Yes. The SKILL.md is open-source and free to use. If you use it through Claude or Claude Code, normal API/subscription costs apply.
-
----
-
-**Q: Can I contribute new questions or insights?**
-
-A: Absolutely! See [CONTRIBUTING.md](./CONTRIBUTING.md). We credit all contributors.
-
----
-
-## Examples
-
-See [example-test-case.md](./example-test-case.md) for a full walkthrough of an interview from start to finish (mock interview for Abhishek's Google interview prep).
+**Can I contribute new questions or insights?**
+Absolutely — open an issue or submit a PR. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
 ## Support
 
-- 📧 Questions? Open an issue on GitHub
-- 💬 Feedback? Let's chat — PRs welcome
-- 🐛 Found a bug? Please report it
-- ⭐ Like this? Star the repo and share it!
+- Questions? Open an issue on GitHub
+- Found a bug? Please report it
+- Like this? Star the repo and share it
 
 ---
 
 ## License
 
-MIT — Use freely, credit appreciated!
-
----
-
-## Acknowledgments
-
-Built with ❤️ by engineers who've done hundreds of interviews. Special thanks to the community for feedback and contributions.
-
----
-
-## Call to Action
-
-**Ready to practice?**
-
-1. Star ⭐ this repo
-2. Fork it or copy the SKILL.md
-3. Generate your first mock interview
-4. **Tell us how it went** — we'd love to hear about your offer! 🎉
-
+MIT — use freely, credit appreciated.
