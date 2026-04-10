@@ -1,0 +1,48 @@
+{
+  "name": "mock-interview-generator",
+  "version": "1.0.0-alpha",
+  "description": "Generate realistic, personalized mock interviews for software engineers. Practice for interviews at Google, Meta, Amazon, Microsoft, and other top tech companies.",
+  "type": "module",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/mock-interview-skill"
+  },
+  "keywords": [
+    "mock-interview",
+    "interview-prep",
+    "practice",
+    "claude",
+    "ai",
+    "software-engineering",
+    "interview-questions",
+    "system-design",
+    "behavioral",
+    "tech-screen",
+    "google",
+    "meta",
+    "amazon"
+  ],
+  "author": "Interview Prep Community",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/mock-interview-skill/issues"
+  },
+  "homepage": "https://github.com/yourusername/mock-interview-skill#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/yourusername/mock-interview-skill"
+  }
+}
